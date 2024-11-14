@@ -1,17 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.blazemeter</groupId>
+  <groupId>com.github.sebastienrichert</groupId>
   <artifactId>xtn5250</artifactId>
-  <!-- This version has no relation to the released version since the release version is extracted
-  from git tag by Travis -->
-  <version>3.2.4</version>
-
+  <version>3.2.5</version>
   <name>${project.artifactId}</name>
-  <description>This is a fork of https://sourceforge.net/projects/xtn5250/</description>
-  <url>https://github.com/blazemeter/xtn5250</url>
+  <description>This is a fork of https://github.com/Blazemeter/xtn5250</description>
+  <url>https://github.com/SebastienRichert/xtn5250</url>
 
   <licenses>
     <license>
@@ -22,25 +19,25 @@
 
   <developers>
     <developer>
-      <name>Blazemeter</name>
-      <email>ops@blazemeter.com</email>
-      <organization>Blazemeter</organization>
-      <organizationUrl>https://blazemeter.com/</organizationUrl>
+      <name>Sébastien Richert</name>
+      <email>s.richert@tricentis.com</email>
+      <organization>Tricentis</organization>
+      <organizationUrl>https://www.tricentis.com/</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git@gitlab.abstracta.us:BZ-plugins/xtn5250.git</connection>
-    <developerConnection>scm:git:git@gitlab.abstracta.us:BZ-plugins/xtn5250.git
-    </developerConnection>
-    <url>http://gitlab.abstracta.us/BZ-plugins/xtn5250</url>
+    <connection>scm:git:git@github.com:SebastienRichert/xtn5250.git</connection>
+    <developerConnection>scm:git:git@github.com:SebastienRichert/xtn5250.git</developerConnection>
+    <url>https://github.com/SebastienRichert/xtn5250</url>
   </scm>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/SebastienRichert/maven</url>
+    </repository>
   </distributionManagement>
 
   <properties>

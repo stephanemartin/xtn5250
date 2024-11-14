@@ -63,7 +63,24 @@ public class TerminalClientTest {
   private TerminalClient client;
   private ExceptionWaiter exceptionWaiter;
   private ScheduledExecutorService stableTimeoutExecutor = Executors
-      .newSingleThreadScheduledExecutor();
+          .newSingleThreadScheduledExecutor();
+
+  public static void main(String[] args) throws IOException, GeneralSecurityException, InterruptedException, TimeoutException {
+    final VirtualTcpService service = new VirtualTcpService();
+    service.setSslEnabled(true);
+    service.start();
+    final TerminalClient client = new TerminalClient();
+    client.setTerminalType(TERMINAL_TYPE);
+    client.setSocketFactory(buildSslContext().getSocketFactory());
+    client.setConnectionTimeoutMillis(5000);
+    final ExceptionWaiter exceptionWaiter = new ExceptionWaiter();
+    client.setExceptionHandler(exceptionWaiter);
+    client.connect("PUB400.com", 992);
+    ScheduledExecutorService stableTimeoutExecutor = Executors
+            .newSingleThreadScheduledExecutor();
+    new UnlockWaiter(client, stableTimeoutExecutor).await(TIMEOUT_MILLIS);
+    System.out.println(client.getScreenText());
+  }
 
   @Before
   public void setup() throws IOException {
@@ -134,7 +151,7 @@ public class TerminalClientTest {
         .isEqualTo(getWelcomeScreen());
   }
 
-  private SSLContext buildSslContext() throws GeneralSecurityException {
+  private static SSLContext buildSslContext() throws GeneralSecurityException {
     SSLContext sslContext = SSLContext.getInstance("TLS");
     TrustManager trustManager = new X509TrustManager() {
 
@@ -143,7 +160,7 @@ public class TerminalClientTest {
       }
 
       public void checkClientTrusted(
-          X509Certificate[] certs, String authType) {
+              X509Certificate[] certs, String authType) {
       }
 
       public void checkServerTrusted(
