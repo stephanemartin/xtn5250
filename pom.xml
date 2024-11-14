@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.sebastienrichert</groupId>
+  <groupId>com.github.stephanemartin</groupId>
   <artifactId>xtn5250</artifactId>
   <version>3.2.5</version>
   <name>${project.artifactId}</name>
   <description>This is a fork of https://github.com/Blazemeter/xtn5250</description>
-  <url>https://github.com/SebastienRichert/xtn5250</url>
+  <url>https://github.com/stephanemartin/xtn5250</url>
 
   <licenses>
     <license>
@@ -19,6 +19,12 @@
 
   <developers>
     <developer>
+      <name>Stephane Martin</name>
+      <email>s.martin@tricentis.com</email>
+      <organization>Tricentis</organization>
+      <organizationUrl>https://www.tricentis.com/</organizationUrl>
+    </developer>
+    <developer>
       <name>Sébastien Richert</name>
       <email>s.richert@tricentis.com</email>
       <organization>Tricentis</organization>
@@ -27,16 +33,16 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:SebastienRichert/xtn5250.git</connection>
-    <developerConnection>scm:git:git@github.com:SebastienRichert/xtn5250.git</developerConnection>
-    <url>https://github.com/SebastienRichert/xtn5250</url>
+    <connection>scm:git:git@github.com:stephanemartin/xtn5250.git</connection>
+    <developerConnection>scm:git:git@github.com:stephanemartin/xtn5250.git</developerConnection>
+    <url>https://github.com/stephanemartin/xtn5250</url>
   </scm>
 
   <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/SebastienRichert/maven</url>
+      <url>https://maven.pkg.github.com/stephanemartin/maven</url>
     </repository>
   </distributionManagement>
 
@@ -129,71 +135,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.1</version>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.0.1</version>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-                <configuration>
-                  <gpgArguments>
-                    <arg>--pinentry-mode</arg>
-                    <arg>loopback</arg>
-                  </gpgArguments>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
 </project>
