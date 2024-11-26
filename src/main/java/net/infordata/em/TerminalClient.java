@@ -25,7 +25,7 @@ public class TerminalClient {
    * Sets the type of terminal to emulate.
    *
    * @param terminalType the type of terminal to emulate. Currently known values are IBM-3179-2 and
-   * IBM-3477-FC. If none is set, then IBM-3179-2 is used.
+   *                     IBM-3477-FC. If none is set, then IBM-3179-2 is used.
    */
   public void setTerminalType(String terminalType) {
     emulator.setTerminalType(terminalType);
@@ -262,7 +262,7 @@ public class TerminalClient {
     emulator.setActive(false);
   }
 
-  private static class TerminalClientEmulator extends XI5250Emulator {
+  public static class TerminalClientEmulator extends XI5250Emulator {
 
     private ExceptionHandler exceptionHandler;
     private boolean alarmSounded;
@@ -312,6 +312,10 @@ public class TerminalClient {
       return ret;
     }
 
+  }
+
+  public TerminalClientEmulator getEmulator() {
+    return emulator;
   }
 
 }

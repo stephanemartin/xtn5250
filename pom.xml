@@ -5,7 +5,7 @@
 
   <groupId>com.github.stephanemartin</groupId>
   <artifactId>xtn5250</artifactId>
-  <version>3.2.5</version>
+  <version>3.2.6-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>This is a fork of https://github.com/Blazemeter/xtn5250</description>
   <url>https://github.com/stephanemartin/xtn5250</url>
