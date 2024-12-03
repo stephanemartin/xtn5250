@@ -1240,12 +1240,20 @@ public class XI5250Field implements XI5250BaseField {
   @Override
   public String toString() {
     return super.toString() + " [FFW=[" + XITelnet.toHex(ivFFW[0]) + "," +
-        XITelnet.toHex(ivFFW[1]) + "]," +
-        "FCW=[" + XITelnet.toHex(ivFCW[0]) + "," +
-        XITelnet.toHex(ivFCW[1]) + "]," +
-        "Attr=" + XITelnet.toHex((byte) ivAttr) + "," +
-        "(" + ivCol + "," + ivRow + ")" +
-        "Len=" + ivLength + "]";
+            XITelnet.toHex(ivFFW[1]) + "]," +
+            "FCW=[" + XITelnet.toHex(ivFCW[0]) + "," +
+            XITelnet.toHex(ivFCW[1]) + "]," +
+            "Attr=" + XITelnet.toHex((byte) ivAttr) + "," +
+            "(" + ivCol + "," + ivRow + ")" +
+            "Len=" + ivLength + "]";
+  }
+
+  public Color getForeground() {
+    return ivCrt.getCrtBuffer().getForeground(ivAttr);
+  }
+
+  public Color getBackground() {
+    return ivCrt.getCrtBuffer().getBackground(ivAttr);
   }
 
   /**
@@ -1254,8 +1262,8 @@ public class XI5250Field implements XI5250BaseField {
    * @author Valentino Proietti - Infordata S.p.A.
    */
   private static class Multicaster extends AWTEventMulticaster
-      implements XI5250FieldListener,
-      XI5250FieldPaintListener {
+          implements XI5250FieldListener,
+          XI5250FieldPaintListener {
 
     protected Multicaster(EventListener a, EventListener b) {
       super(a, b);
