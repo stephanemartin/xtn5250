@@ -416,8 +416,8 @@ public class XICrt extends JComponent implements Serializable {
     }
 
     repaint(0, row1 * ivCrtBuffer.getCharSize().height,
-        ivCrtBuffer.getSize().width,
-        (row2 - row1) * ivCrtBuffer.getCharSize().height);
+            ivCrtBuffer.getSize().width,
+            (row2 - row1) * ivCrtBuffer.getCharSize().height);
   }
 
   /**
@@ -434,9 +434,9 @@ public class XICrt extends JComponent implements Serializable {
   /**
    * Draws a string with the given attribute.
    *
-   * @param str string to draw.
-   * @param col column where to draw the string.
-   * @param row row where to draw the string.
+   * @param str   string to draw.
+   * @param col   column where to draw the string.
+   * @param row   row where to draw the string.
    * @param aAttr attribute of the string.
    */
   public void drawString(String str, int col, int row, int aAttr) {
@@ -608,7 +608,7 @@ public class XICrt extends JComponent implements Serializable {
     }
   }
 
-  protected final XICrtBuffer getCrtBuffer() {
+  public final XICrtBuffer getCrtBuffer() {
     return ivCrtBuffer;
   }
 

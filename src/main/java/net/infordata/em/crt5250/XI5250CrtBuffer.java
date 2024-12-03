@@ -446,21 +446,21 @@ public class XI5250CrtBuffer extends XICrtBuffer implements Serializable {
   }
 
   @Override
-  protected Color getBackground(int aAttribute) {
+  public Color getBackground(int aAttribute) {
     // see SA21-9247-6 pg 2-143
     int mapIdx = Math.min(ivBackgroundColorsMap.length - 1,
-        getColorMapIdx(aAttribute));
+            getColorMapIdx(aAttribute));
     return ivBackgroundColorsMap[mapIdx]
-        [getColorAttributeIdx(aAttribute) - 0x20];
+            [getColorAttributeIdx(aAttribute) - 0x20];
   }
 
   @Override
-  protected Color getForeground(int aAttribute) {
+  public Color getForeground(int aAttribute) {
     // see SA21-9247-6 pg 2-143
     int mapIdx = Math.min(ivForegroundColorsMap.length - 1,
-        getColorMapIdx(aAttribute));
+            getColorMapIdx(aAttribute));
     return ivForegroundColorsMap[mapIdx]
-        [getColorAttributeIdx(aAttribute) - 0x20];
+            [getColorAttributeIdx(aAttribute) - 0x20];
   }
 
   /**

@@ -504,7 +504,7 @@ public class XICrtBuffer implements Serializable {
    * @param aAttribute attribute from where to get the color.
    * @return background color.
    */
-  protected Color getBackground(int aAttribute){
+  public Color getBackground(int aAttribute) {
     return Color.black;
   }
 
@@ -514,7 +514,7 @@ public class XICrtBuffer implements Serializable {
    * @param aAttribute attribute from where to get the color.
    * @return foreground color.
    */
-  protected Color getForeground(int aAttribute) {
+  public Color getForeground(int aAttribute) {
     return Color.green;
   }
 
