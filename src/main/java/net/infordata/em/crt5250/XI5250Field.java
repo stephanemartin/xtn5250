@@ -1249,11 +1249,24 @@ public class XI5250Field implements XI5250BaseField {
   }
 
   public Color getForeground() {
+    if (ivAttr == -1) {
+      return Color.green;
+    }
     return ivCrt.getCrtBuffer().getForeground(ivAttr);
   }
 
   public Color getBackground() {
+    if (ivAttr == -1) {
+      return Color.black;
+    }
     return ivCrt.getCrtBuffer().getBackground(ivAttr);
+  }
+
+  public boolean isUnderscore() {
+    if (ivAttr == -1) {
+      return false;
+    }
+    return ivCrt.getCrtBuffer().isUnderscore(ivAttr);
   }
 
   /**

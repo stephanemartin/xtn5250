@@ -518,6 +518,10 @@ public class XICrtBuffer implements Serializable {
     return Color.green;
   }
 
+  public boolean isUnderscore(final int ivAttr) {
+    return false;
+  }
+
   public final int getAttrInternal(int col, int row) {
     col = Math.max(0, Math.min(ivNCols - 1, col));
     row = Math.max(0, Math.min(ivNRows - 1, row));
@@ -570,5 +574,4 @@ public class XICrtBuffer implements Serializable {
   void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException {
     ois.defaultReadObject();
   }
-
 }
