@@ -463,6 +463,11 @@ public class XI5250CrtBuffer extends XICrtBuffer implements Serializable {
             [getColorAttributeIdx(aAttribute) - 0x20];
   }
 
+  @Override
+  public boolean isUnderscore(final int aAttribute) {
+    return (getExtraCharAttribute(aAttribute) & UNDERSCORE) != 0;
+  }
+
   /**
    * Attribute to extra char attribute mapping.
    * @param aAttribute the attribute to get the extra char attribute from
