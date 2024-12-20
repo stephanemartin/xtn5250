@@ -1156,4 +1156,7 @@ public class XICrt extends JComponent implements Serializable {
 
   }
 
+  public XICrtBuffer getIvCrtBuffer() {
+    return ivCrtBuffer;
+  }
 }

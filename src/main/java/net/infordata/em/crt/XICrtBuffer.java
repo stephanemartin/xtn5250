@@ -574,4 +574,16 @@ public class XICrtBuffer implements Serializable {
   void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException {
     ois.defaultReadObject();
   }
+
+  public char[][] getIvCharBuffer() {
+    return ivCharBuffer;
+  }
+
+  public int[][] getIvAttrBuffer() {
+    return ivAttrBuffer;
+  }
+
+  public List<Rectangle> getIvDirtyAreas() {
+    return ivDirtyAreas;
+  }
 }
