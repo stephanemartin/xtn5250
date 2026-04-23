@@ -31,7 +31,7 @@ jobs:
           if [ ${{ github.ref == 'refs/heads/master' }} ]; then
             mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots deploy
           else
-            mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots install
+            mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots package
           fi
         env:
           MAVEN_USERNAME: ${{ secrets.PUSH_USER }}
