@@ -14,7 +14,7 @@ To use the emulator as maven dependency include in `pom.xml`:
 <dependency>
     <groupId>io.github.stephanemartin</groupId>
     <artifactId>xtn5250</artifactId>
-    <version>3.2.7</version>
+    <version>3.2.8</version>
 </dependency>
 ```
 
