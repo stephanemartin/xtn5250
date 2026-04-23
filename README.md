@@ -12,9 +12,9 @@ To use the emulator as maven dependency include in `pom.xml`:
 ```xml
 
 <dependency>
-    <groupId>com.github.sebastienrichert</groupId>
+    <groupId>io.github.stephanemartin</groupId>
     <artifactId>xtn5250</artifactId>
-    <version>3.2.6</version>
+    <version>3.2.7</version>
 </dependency>
 ```
 
