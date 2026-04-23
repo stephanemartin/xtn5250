@@ -27,7 +27,10 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Build with Maven
-        run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots deploy
+        if: ${{ github.ref == 'refs/heads/master' }}
+          run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots deploy
+        else:
+          run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} --update-snapshots install
         env:
           MAVEN_USERNAME: ${{ secrets.PUSH_USER }}
           MAVEN_PASSWORD: ${{ secrets.PUSH_TOKEN }}
